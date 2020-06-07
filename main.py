@@ -66,7 +66,7 @@ def generate_response(user_response):
     flat = vals.flatten()
     flat.sort()
     req_tfidf = flat[-2]
-    if(req_tfidf==0) or "tell me about" in user_response:
+    if(req_tfidf==0) or "tell me about" or "search" in user_response:
         print("Checking Wikipedia")
         if user_response:
             robo_response = wikipedia_data(user_response) + "\n"
@@ -89,7 +89,7 @@ flag=True
 print("My name is BOTSEARCH and I'm a searchbot. If you want to exit, type Bye!")
 while(flag==True):
     user_response = input()
-    user_response=user_response.lower()
+    user_response = user_response.lower()
     if(user_response not in ['bye','shutdown','exit', 'quit']):
         if(user_response=='thanks' or user_response=='thank you' ):
             flag=False
